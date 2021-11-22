@@ -54,11 +54,11 @@ public class AddressBookContact {
     }
 
     public String getState() {
-        return city;
+        return state;
     }
 
     public void setState(String state) {
-        this.city = city;
+        this.state = state;
     }
 
     public int getZip() {
@@ -84,6 +84,11 @@ public class AddressBookContact {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /*
+     *This Display Method Displays Details Just Got Added To The Array List.
+     */
+
     public void display() {
         System.out.println(" ");
         System.out.println("First Name = " + firstName);
