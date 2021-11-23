@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class AddressBook {
 	private static ArrayList<AddressBookContact> list = new ArrayList<AddressBookContact>();
 
+// Add contact details in AddressBookContact ::	
 	public void AddContactsDetails() {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter the First Name => ");
@@ -31,6 +32,7 @@ public class AddressBook {
 		details.display();
 	}
 
+//Edit contact details in AddressBookContact::
 	private void editContact() {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter firstname to edit contact => ");
@@ -68,6 +70,7 @@ public class AddressBook {
 		}
 	}
 
+//Delete contact details in AddressBookContact ::
 	private void deleteContact() {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter firstname to Delete Contact => ");
@@ -82,6 +85,7 @@ public class AddressBook {
 		}
 	}
 
+//Check duplicate entry in AddressBookContact::
 	private void checkDuplicateEntry() {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter firstname to Check duplicate entry Contact: ");
@@ -95,6 +99,7 @@ public class AddressBook {
 		}
 	}
 
+//Search person in AddressBookContact::
 	private void searchPerson() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter city to search person entry in Contact: ");
@@ -136,8 +141,8 @@ public class AddressBook {
 				} else if (choice == 4) {
 					book1.checkDuplicateEntry();
 				} else if (choice == 5) {
-                    book1.searchPerson();
-                }
+					book1.searchPerson();
+				}
 				break;
 			case 2:
 				if (choice == 1) {
@@ -149,8 +154,8 @@ public class AddressBook {
 				} else if (choice == 4) {
 					book2.checkDuplicateEntry();
 				} else if (choice == 5) {
-                    book2.searchPerson();
-                }
+					book2.searchPerson();
+				}
 				break;
 			case 3:
 				if (choice == 1) {
@@ -162,8 +167,8 @@ public class AddressBook {
 				} else if (choice == 4) {
 					book3.checkDuplicateEntry();
 				} else if (choice == 5) {
-                    book3.searchPerson();
-                }
+					book3.searchPerson();
+				}
 				break;
 			default:
 				System.out.println("Give proper input");
