@@ -95,6 +95,20 @@ public class AddressBook {
 		}
 	}
 
+	private void searchPerson() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter city to search person entry in Contact: ");
+		String city = sc.nextLine();
+		for (AddressBookContact search : list) {
+			if (city.equalsIgnoreCase(search.getCity())) {
+				System.out.println("Entered city found in the Address Book");
+				search.display();
+			} else {
+				System.out.println("Entered city not found in the Address Book");
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner(System.in);
 		HashMap<String, AddressBook> addressBooks = new HashMap<>();
@@ -106,9 +120,10 @@ public class AddressBook {
 		addressBooks.put("AddressBook3", book3);
 		System.out.println("Choose your Address Book => AddressBook(1)/ AddressBook(2)/ AddressBook(3)");
 		int chooseAddressBook = userInput.nextInt();
-		System.out.println("Choose your Address Book => Add/Edit/Delete");
+		System.out.println("Choose your Address Book => Add/Edit/Delete/DuplicateEntry/SearchPerson");
 		while (chooseAddressBook >= 1) {
-			System.out.println("Enter Your Choice => Add Contacts (1)/Edit Contacts (2)/Delete Contacts (3)/ Check Duplicate Entry (4)");
+			System.out.println(
+					"Enter Your Choice => Add Contacts (1)/Edit Contacts (2)/Delete Contacts (3)/ Check Duplicate Entry (4)/ Search person (5)");
 			int choice = userInput.nextInt();
 			switch (chooseAddressBook) {
 			case 1:
@@ -118,8 +133,10 @@ public class AddressBook {
 					book1.editContact();
 				} else if (choice == 3) {
 					book1.deleteContact();
-				}else if (choice == 4) {
-                    book1.checkDuplicateEntry();
+				} else if (choice == 4) {
+					book1.checkDuplicateEntry();
+				} else if (choice == 5) {
+                    book1.searchPerson();
                 }
 				break;
 			case 2:
@@ -129,8 +146,10 @@ public class AddressBook {
 					book2.editContact();
 				} else if (choice == 3) {
 					book2.deleteContact();
-				}else if (choice == 4) {
-                    book2.checkDuplicateEntry();
+				} else if (choice == 4) {
+					book2.checkDuplicateEntry();
+				} else if (choice == 5) {
+                    book2.searchPerson();
                 }
 				break;
 			case 3:
@@ -140,8 +159,10 @@ public class AddressBook {
 					book3.editContact();
 				} else if (choice == 3) {
 					book3.deleteContact();
-				}else if (choice == 4) {
-                    book2.checkDuplicateEntry();
+				} else if (choice == 4) {
+					book3.checkDuplicateEntry();
+				} else if (choice == 5) {
+                    book3.searchPerson();
                 }
 				break;
 			default:
