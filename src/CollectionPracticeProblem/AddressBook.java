@@ -82,6 +82,19 @@ public class AddressBook {
 		}
 	}
 
+	private void checkDuplicateEntry() {
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Enter firstname to Check duplicate entry Contact: ");
+		String name = userInput.nextLine();
+		for (AddressBookContact search : list) {
+			if (name.equalsIgnoreCase(search.getFirstName())) {
+				System.out.println("Entered name found in the Address Book");
+			} else {
+				System.out.println("Entered name not found in the Address Book");
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner(System.in);
 		HashMap<String, AddressBook> addressBooks = new HashMap<>();
@@ -95,7 +108,7 @@ public class AddressBook {
 		int chooseAddressBook = userInput.nextInt();
 		System.out.println("Choose your Address Book => Add/Edit/Delete");
 		while (chooseAddressBook >= 1) {
-			System.out.println("Enter Your Choice => Add Contacts (1)/Edit Contacts (2)/Delete Contacts (3)");
+			System.out.println("Enter Your Choice => Add Contacts (1)/Edit Contacts (2)/Delete Contacts (3)/ Check Duplicate Entry (4)");
 			int choice = userInput.nextInt();
 			switch (chooseAddressBook) {
 			case 1:
@@ -105,7 +118,9 @@ public class AddressBook {
 					book1.editContact();
 				} else if (choice == 3) {
 					book1.deleteContact();
-				}
+				}else if (choice == 4) {
+                    book1.checkDuplicateEntry();
+                }
 				break;
 			case 2:
 				if (choice == 1) {
@@ -114,7 +129,9 @@ public class AddressBook {
 					book2.editContact();
 				} else if (choice == 3) {
 					book2.deleteContact();
-				}
+				}else if (choice == 4) {
+                    book2.checkDuplicateEntry();
+                }
 				break;
 			case 3:
 				if (choice == 1) {
@@ -123,10 +140,12 @@ public class AddressBook {
 					book3.editContact();
 				} else if (choice == 3) {
 					book3.deleteContact();
-				}
+				}else if (choice == 4) {
+                    book2.checkDuplicateEntry();
+                }
 				break;
 			default:
-				System.out.println("Invalid input");
+				System.out.println("Give proper input");
 				break;
 			}
 			System.out.println("1) AddressBook 1");
@@ -134,7 +153,6 @@ public class AddressBook {
 			System.out.println("3) AddressBook 3");
 			System.out.println("0) Exit");
 			chooseAddressBook = userInput.nextInt();
-
 		}
 	}
 
