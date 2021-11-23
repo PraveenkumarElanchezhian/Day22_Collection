@@ -1,8 +1,12 @@
 package CollectionPracticeProblem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.text.html.parser.Element;
 
 public class AddressBook {
 	private static ArrayList<AddressBookContact> list = new ArrayList<AddressBookContact>();
@@ -114,7 +118,24 @@ public class AddressBook {
 		}
 	}
 
+// View persons by state wise ::
+	private void viewPersons() {
+		Collections.sort(list, (o1, o2) -> (o1.getState().compareTo(o2.getState())));
+		for (AddressBookContact search : list) {
+			System.out.println("The person name is " + search.getFirstName()+" from " + search.getState() + " State");
+		}
+	}	
+// View persons contact number by state wise ::
+	private void viewPersonsContactNumber() {
+		Collections.sort(list, (o1, o2) -> (o1.getState().compareTo(o2.getState())));
+		for (AddressBookContact search : list) {
+			System.out.println(" ");
+			System.out.println("Person name :: " + search.getFirstName() +"|| Phone no :: "+search.getPhoneNumber() +"|| State :: " + search.getState());
+		}
+	}
+
 	public static void main(String[] args) {
+
 		Scanner userInput = new Scanner(System.in);
 		HashMap<String, AddressBook> addressBooks = new HashMap<>();
 		AddressBook book1 = new AddressBook();
@@ -178,7 +199,11 @@ public class AddressBook {
 			System.out.println("2) AddressBook 2");
 			System.out.println("3) AddressBook 3");
 			System.out.println("0) Exit");
+			AddressBook myobj = new AddressBook();
+			myobj.viewPersons();
+			myobj.viewPersonsContactNumber();
 			chooseAddressBook = userInput.nextInt();
+
 		}
 	}
 
